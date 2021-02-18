@@ -9,6 +9,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+import UsernameField from "./usernamefield";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,8 +29,10 @@ function SetState() {
 function ButtonAppBar() {
   const classes = useStyles();
 
-  // function for displaying text
-
+  function handleSubmit() {
+    console.log("STUFF HERE");
+    return <UsernameField />;
+  }
   return (
     <div className={classes.root}>
       <Card className={classes.root}>
@@ -47,7 +50,9 @@ function ButtonAppBar() {
               Login Page
             </Typography>
             <div onClick={!useState}>
-              <Button color="inherit">Login</Button>
+              <Button color="inherit" onClick={() => handleSubmit()}>
+                Login
+              </Button>
             </div>
           </Toolbar>
         </AppBar>

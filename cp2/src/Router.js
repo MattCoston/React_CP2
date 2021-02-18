@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router";
 import LandingPage from "./Components/landingpage";
 import cookie from "cookie";
-
+import ButtonAppBar from "./Components/buttonappbar";
 const checkAuth = () => {
   const cookie = cookie.parse(document.cookie);
   return (cookie = ["loggedIn"] ? true : false);
@@ -23,6 +23,7 @@ const Router = () => {
   return (
     <Switch>
       <Route exact path="/" component={LandingPage} />
+      <Route exact path="/login" component={ButtonAppBar} />
     </Switch>
   );
 };

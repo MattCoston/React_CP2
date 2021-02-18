@@ -23,16 +23,13 @@ const useRowStyles = makeStyles({
   },
 });
 
-function createData(name, description, hours, address) {
+function createData(name, description, hours, address, apicall) {
   return {
     name,
     description,
     hours,
     address,
-    history: [
-      { date: "2020-01-05", customerId: "11091700", amount: 3 },
-      { date: "2020-01-02", customerId: "Anonymous", amount: 1 },
-    ],
+    apicall,
   };
 }
 
@@ -63,35 +60,7 @@ function Row(props) {
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box margin={1}>
-              <Typography variant="h6" gutterBottom component="div">
-                History
-              </Typography>
-              <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Customer</TableCell>
-                    <TableCell align="right">Amount</TableCell>
-                    <TableCell align="right">Total price ($)</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {row.history.map((historyRow) => (
-                    <TableRow key={historyRow.date}>
-                      <TableCell component="th" scope="row">
-                        {historyRow.date}
-                      </TableCell>
-                      <TableCell>{historyRow.customerId}</TableCell>
-                      <TableCell align="right">{historyRow.amount}</TableCell>
-                      <TableCell align="right">
-                        {Math.round(historyRow.amount * row.price * 100) / 100}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Box>
+            <Box margin={1}>{row.apicall}</Box>
           </Collapse>
         </TableCell>
       </TableRow>
@@ -99,27 +68,19 @@ function Row(props) {
   );
 }
 
-Row.propTypes = {
-  row: PropTypes.shape({
-    calories: PropTypes.number.isRequired,
-    carbs: PropTypes.number.isRequired,
-    fat: PropTypes.number.isRequired,
-    history: PropTypes.arrayOf(
-      PropTypes.shape({
-        amount: PropTypes.number.isRequired,
-        customerId: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    protein: PropTypes.number.isRequired,
-  }).isRequired,
-};
-
 const rows = [
-  createData("Business 1", 159, 6.0, 24, 4.0, 3.99),
-  createData("Business 2", 237, 9.0, 37, 4.3, 4.99),
+  createData(
+    "Business 1",
+    "A BUSINESS YOU CAN BUY STUFF FROM",
+    "8-5",
+    "DOWN THE STREET"
+  ),
+  createData(
+    "Business 2",
+    "A BUSINESS YOU CAN BUY STUFF FROM",
+    "9-10",
+    "RIGHT AROUND THE CORNER"
+  ),
 ];
 
 function CollapsibleTable() {
