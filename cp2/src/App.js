@@ -8,9 +8,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import "./App.css";
 import ButtonAppBar from "./Components/buttonappbar";
 import UsernameField from "./Components/usernamefield";
-
+import "./Components/landingpage";
 import React, { Component } from "react";
-
+import { Switch, Router } from "react-router";
 class App extends Component {
   state = {
     loggedIn: false,
@@ -21,23 +21,7 @@ class App extends Component {
   };
 
   render() {
-    if (this.state.loggedIn) {
-      return (
-        <div className="App">
-          <ButtonAppBar />
-
-          <button onClick={this.changeState}>LOG OUT</button>
-        </div>
-      );
-    } else {
-      return (
-        <div className="App">
-          <ButtonAppBar />
-          <UsernameField />
-          <button onClick={this.changeState}>LOGIN</button>
-        </div>
-      );
-    }
+    return <div className="App">HEY THERE</div>;
   }
 }
 

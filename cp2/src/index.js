@@ -5,14 +5,15 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import Router from "./Router";
+import ButtonAppBar from "./Components/buttonappbar";
 
 const Main = () => (
   <BrowserRouter>
+    <ButtonAppBar />
     <Router />
   </BrowserRouter>
 );
 
-// #5
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<Main />, document.getElementById("root"));
 
 reportWebVitals();
