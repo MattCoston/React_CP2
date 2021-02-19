@@ -14,7 +14,7 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-
+import Maps from "./map";
 const useRowStyles = makeStyles({
   root: {
     "& > *": {
@@ -32,6 +32,10 @@ function createData(name, description, hours, address, apicall) {
     apicall,
   };
 }
+const center = {
+  lat: 33.5,
+  lng: -101.9,
+};
 
 function Row(props) {
   const { row } = props;
@@ -39,32 +43,36 @@ function Row(props) {
   const classes = useRowStyles();
 
   return (
-    <React.Fragment>
-      <TableRow className={classes.root}>
-        <TableCell>
-          <IconButton
-            aria-label="expand row"
-            size="small"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-          </IconButton>
-        </TableCell>
-        <TableCell component="th" scope="row">
-          {row.name}
-        </TableCell>
-        <TableCell align="right">{row.description}</TableCell>
-        <TableCell align="right">{row.hours}</TableCell>
-        <TableCell align="right">{row.address}</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box margin={1}>{row.apicall}</Box>
-          </Collapse>
-        </TableCell>
-      </TableRow>
-    </React.Fragment>
+    <>
+      <React.Fragment>
+        <TableRow className={classes.root}>
+          <TableCell>
+            <IconButton
+              aria-label="expand row"
+              size="small"
+              onClick={() => setOpen(!open)}
+            >
+              {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            </IconButton>
+          </TableCell>
+          <TableCell component="th" scope="row">
+            {row.name}
+          </TableCell>
+          <TableCell align="right">{row.description}</TableCell>
+          <TableCell align="right">{row.hours}</TableCell>
+          <TableCell align="right">{row.address}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <Box margin={3}>
+                <Maps center={center} />
+              </Box>
+            </Collapse>
+          </TableCell>
+        </TableRow>
+      </React.Fragment>
+    </>
   );
 }
 
