@@ -4,6 +4,7 @@ import LandingPage from "./Components/landingpage";
 import cookie from "cookie";
 import ButtonAppBar from "./Components/buttonappbar";
 import UsernameField from "./Components/usernamefield";
+import LoggedIn from "./Components/loggedin";
 
 const checkAuth = () => {
   const cookie = cookie.parse(document.cookie);
@@ -26,6 +27,7 @@ const Router = () => {
     <Switch>
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/login" component={UsernameField} />
+      <Route exact path="/loggedin" component={LoggedIn} />
     </Switch>
   );
 };
