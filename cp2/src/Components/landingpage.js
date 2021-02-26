@@ -23,13 +23,12 @@ const useRowStyles = makeStyles({
   },
 });
 
-function createData(name, description, hours, address, apicall) {
+function createData(name, description, hours, address) {
   return {
     name,
     description,
     hours,
     address,
-    apicall,
   };
 }
 const center = {
