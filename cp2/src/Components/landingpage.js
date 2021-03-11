@@ -77,16 +77,16 @@ function Row(props) {
 
 const rows = [
   createData(
-    "Business 1",
-    "A BUSINESS YOU CAN BUY STUFF FROM",
-    "8-5",
-    "DOWN THE STREET"
+    "Quattro Gatti Ristorante e Pizzeria",
+    "Gourmet pizzas, classic entrees & a tasting menu highlight this posh Italian cafe near the Capitol.",
+    "4:30PM - 9PM",
+    "908 Congress Ave, Austin, TX 78701"
   ),
   createData(
-    "Business 2",
-    "A BUSINESS YOU CAN BUY STUFF FROM",
-    "9-10",
-    "RIGHT AROUND THE CORNER"
+    "Consuela",
+    "Women's label/boutique selling colorful, Mexican-inspired leather goods, such as bags & flip-flops.",
+    "10AM - 6PM",
+    "912 Congress Ave, Austin, TX 78701"
   ),
 ];
 
